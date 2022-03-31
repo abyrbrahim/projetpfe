@@ -7,15 +7,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4">
-                                    <h4 class="card-title">Edit user</h4>
+                                    <h4 class="card-title">Modifier l'utilisateur</h4>
 
                                 </div>
                                 <form action="{{ route('users.update') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$user->id}}">
                                     <div class="form-group">
-                                        <label for="name">Name <span style="color: red">*</span></label>
-                                        <input type="text" name="name" id="name" class="form-control"  value="{{$user->name}}">
+                                        <label for="name">Nom <span style="color: red">*</span></label>
+                                        <input type="text" name="name" id="name" class="form-control @error('name') error @enderror"  value="{{$user->name}}">
                                         @error("name")
                                             <div class="error">
                                                 {{$message}}
@@ -24,7 +24,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email <span style="color: red">*</span></label>
-                                        <input type="email" name="email" id="email" class="form-control"  value="{{$user->email}}">
+                                        <input type="email" name="email" id="email" class="form-control @error('email') error @enderror"  value="{{$user->email}}">
                                         @error("email")
                                         <div class="error">
                                             {{$message}}
@@ -32,8 +32,8 @@
                                     @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="password">Password <span style="color: red">*</span></label>
-                                        <input type="password" name="password" id="password" class="form-control" >
+                                        <label for="password">Mot de passe <span style="color: red">*</span></label>
+                                        <input type="password" name="password" id="password" class="form-control @error('password') error @enderror" >
                                         @error("password")
                                             <div class="error">
                                                 {{$message}}
@@ -41,10 +41,10 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="password">Password Confirmation <span style="color: red">*</span></label>
-                                        <input type="password" name="password_confirmation" id="password-confirm" class="form-control" >
+                                        <label for="password">Confirmation mot de passe <span style="color: red">*</span></label>
+                                        <input type="password" name="password_confirmation" id="password-confirm" class="form-control @error('password-confirm') error @enderror" >
                                     </div>
-                                    <button type="submit" class="btn btn-sm btn-primary btn-rounded">update</button>
+                                    <button type="submit" class="btn btn-sm btn-primary btn-rounded">mettre à jour</button>
                                 </form>
                             </div>
                         </div>

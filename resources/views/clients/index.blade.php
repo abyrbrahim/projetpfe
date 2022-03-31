@@ -15,27 +15,27 @@
                             <div class="ml-auto">
                                 <div class="dropdown sub-dropdown">
 
-                                        <a href="{{ route('clients.create') }}"  class="btn btn-info-light" role="button" aria-pressed="true">Add a new client</a>
+                                        <a href="{{ route('clients.create') }}"  class="btn btn-info-light" role="button" aria-pressed="true">Ajouter un nouveau client</a>
 
 
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table class="table table-bordered" data-page-size="10" data-pagination="true" data-search="true" data-toggle="table">
+                            <table class="table table-bordered mb-0" data-page-size="10" data-pagination="true" data-search="true" data-toggle="table">
                                 <thead>
-                                    <tr class="border-0">
-                                        <th class="border-0 font-14 font-weight-medium text-muted">Code Client
+                                    <tr class="bg-secondary ">
+                                        <th class="text-dark ">Code Client
                                         </th>
-                                        <th class="border-0 font-14 font-weight-medium text-muted px-2">Name
+                                        <th class="text-dark">Nom
                                         </th>
-                                        <th class="border-0 font-14 font-weight-medium text-muted">Email</th>
-                                        <th class="border-0 font-14 font-weight-medium text-muted">Phone</th>
-                                        <th class="border-0 font-14 font-weight-medium text-muted ">
-                                            created at
+                                        <th class="text-dark">Email</th>
+                                        <th class="text-dark">Téléphone</th>
+                                        <th class="text-dark ">
+                                            créé à
                                         </th>
 
-                                        <th class="border-0 font-14 font-weight-medium text-muted">actions</th>
+                                        <th class="text-dark">actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,14 +49,14 @@
                                          </td>
                                          <td>{{$client->created_at->format('d/m/Y')}}</td>
                                             <td>
-                                                <a href="{{ route('clients.edit', ['client'=>$client]) }}" class="btn btn-sm btn-success-light btn-sm">Edit</a>
-                                                <a href="{{ route('clients.delete', ['id'=>$client]) }}" onclick="return confirm('Are you sure you want to delete this client?');"class="btn btn-sm btn-danger-light btn-sm" {{$client->id}}>Delete</a>
+                                                <a href="{{ route('clients.edit', ['client'=>$client]) }}" class="btn btn-sm btn-success-light btn-sm">Éditer</a>
+                                                <a href="{{ route('clients.delete', ['id'=>$client]) }}" onclick="return confirm('Voulez-vous vraiment supprimer cet client ?');"class="btn btn-sm btn-danger-light btn-sm" {{$client->id}}>Supprimer</a>
 
                                             </td>
 
                                         </tr>
                                     @empty
-                                        No clients yet ! click <a href="{{ route('clients.create') }}">link</a> to add new
+                                    Pas encore d'enregistrements ! Cliquez sur<a href="{{ route('clients.create') }}">lien</a> pour ajouter de nouveaux
                                     @endforelse
 
                                 </tbody>

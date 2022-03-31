@@ -29,4 +29,16 @@ class ClientUpdateRequest extends FormRequest
             'phone' => 'required|min:8',
         ];
     }
+    public function messages()
+    {
+
+            return [
+                'name.required'=>'Compléter le champ correspondant au nom',
+                'email.required'=>'Le champ email est obligatoire',
+                'phone.required'=>'Le téléphone doit comporter au moins 8 caractères',
+                'email.unique'=>'Email a déjà pris',
+                'phone.unique'=>'Le numéro de téléphone a déjà été pris'
+            ];
+    
+    }
 }

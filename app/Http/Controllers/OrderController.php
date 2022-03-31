@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\OrderRequest;
 use App\Models\Client;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +13,7 @@ class OrderController extends Controller
 {
     public function index()
     {
+
             $orders=Order::latest()->get();
             return view('orders.index')->with('orders', $orders);
 
@@ -25,17 +27,22 @@ class OrderController extends Controller
     public function create()
     {
         $clients = Client::latest()->get();
-        return view('orders.create',compact('clients'));
+        $products = Product::latest()->get();
+        return view('orders.create',compact('clients','products'));
     }
     public function store(OrderRequest $request) {
 
-        Order::create([
+        $order=Order::create([
              'description' => $request->description,
              'client_id' => $request->client_id,
              'user_id'=>Auth::user()->id,
              'prix'=>$request->prix,
 
          ]);
+             $order->products()->attach($request->products_id, ['qte' => 2]);
+
+             //$order->products()->attach(1,);
+
 
          return redirect()->route('orders');
      }
@@ -51,8 +58,8 @@ class OrderController extends Controller
      }
      public function delete($id)
      {
-         $order =Order::findorfail($id);
-
+        Order::findorfail($id)->delete();
+        return back();
      }
 
 }

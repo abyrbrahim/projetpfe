@@ -29,7 +29,9 @@ class HomeController extends Controller
         $users=User::count();
         $clients=Client::count();
         $orders=Order::count();
+       
         return view('home',compact('users','clients','orders'));
     }
+
 
 }
