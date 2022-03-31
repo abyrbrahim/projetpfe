@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar">
     <div class="sidebar-brand">
-        <img src="{{ asset('assets/images/')}}" class="img" alt="">
-        <img src="" class="img-sm" alt="">
+        <img src="../../assets/layouts/logos/logo.png" class="img" alt="">
+        <img src="../../assets/layouts/logos/logo-sm.png" class="img-sm" alt="">
     </div>
 
     <ul class="sidebar-menu">
