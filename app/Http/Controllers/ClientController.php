@@ -7,6 +7,7 @@ use App\Http\Requests\ClientUpdateRequest;
 use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class ClientController extends Controller
 {
@@ -29,7 +30,7 @@ class ClientController extends Controller
              'phone' => $request->phone,
 
          ]);
-
+         Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('clients');
      }
      public function edit(Client $client)
@@ -44,7 +45,7 @@ class ClientController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
             ]);
-
+            Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('clients');
      }
      public function delete($id)
@@ -52,7 +53,7 @@ class ClientController extends Controller
          $client =Client::findorfail($id)->update([
              'deleted'=>1
          ]);
-
+         Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('clients');
      }
 

@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class OrderController extends Controller
 {
@@ -43,7 +44,7 @@ class OrderController extends Controller
 
              //$order->products()->attach(1,);
 
-
+             Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('orders');
      }
 
@@ -54,11 +55,13 @@ class OrderController extends Controller
             'client_id' => $request->client_id,
             'prix'=>$request->prix,
         ]);
+        Session::flash('success_message', 'Operation effectuer avec success');
         return redirect()->route('orders');
      }
      public function delete($id)
      {
         Order::findorfail($id)->delete();
+        Session::flash('success_message', 'Operation effectuer avec success');
         return back();
      }
 

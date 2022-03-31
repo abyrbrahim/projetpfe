@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -31,6 +32,7 @@ class UserController extends Controller
              'password'=> Hash::make($request->password)
 
          ]);
+         Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('users');
 
      }
@@ -57,7 +59,7 @@ class UserController extends Controller
                 'email' => $request->email,
             ]);
         }
-
+        Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('users');
      }
 
@@ -66,6 +68,7 @@ class UserController extends Controller
         $users =User::findorfail($id)->update([
             'deleted'=>1
         ]);
+        Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('users');
      }
 }

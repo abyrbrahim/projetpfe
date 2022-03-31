@@ -6,6 +6,7 @@ use App\Http\Requests\ProductRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
              'sku' => $request->sku,
              'qte' => $request->qte,
          ]);
-
+         Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('products');
      }
      public function edit(product $product)
@@ -39,7 +40,7 @@ class ProductController extends Controller
             Product::findorfail($request->id)->update([
                 'sku' => $request->sku,
                 'qte' => $request->qte,]);
-
+                Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('products');
 
     }
@@ -47,6 +48,7 @@ class ProductController extends Controller
     {
         $product =Product::findorfail($id);
         $product->delete();
+        Session::flash('success_message', 'Operation effectuer avec success');
         return redirect()->route('products');
     }
 

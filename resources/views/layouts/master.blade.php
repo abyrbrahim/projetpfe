@@ -29,6 +29,8 @@
         <link rel="stylesheet" href="{{ asset('layouts/layout-1/css/app8bb9.css?v=545') }}">
         <link rel="stylesheet" href="{{ asset('../../../css/invoices/invoices.css') }}">
         <!-- Page style codes or css links goes here. -->
+		<link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}">
 
 
         <!-- Setting website's root url for the api calls. -->
@@ -37,6 +39,7 @@
             window.ROOT_URL = ""
 
         </script>
+
 
     </head>
 
@@ -86,11 +89,25 @@
 
         <!-- Page's links to JS dependencies goes here. -->
 
-
+		<script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+        <script src="{{ asset('../../js/pages/components/sweet-alert.js') }}"></script>
         <script src="{{ asset('/layouts/layout-1/js/app.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap-table/bootstrap-table.js') }}"></script>
         <!-- Page script codes or links goes here. -->
+		<script src="{{ asset('../../vendor/toastr/toastr.min.js') }}"></script>
+        <script src="{{ asset('../../js/pages/components/toastr.js') }}"></script>
 
+        @if (Session::has('success_message'))
+
+        <script>
+        toastr.options.closeButton = true;
+        toastr.options.closeMethod = 'fadeOut';
+        toastr.options.closeDuration = 300;
+        toastr.options.closeEasing = 'swing';
+        toastr.success( '{!! Session::get('success_message') !!}','Good Job !')
+        </script>
+
+        @endif
 
 
     </body>
