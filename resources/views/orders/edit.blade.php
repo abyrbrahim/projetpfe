@@ -10,7 +10,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4">
-                                    <h4 class="card-title">Update N° {{$order->id}}</h4>
+                                    <h4 class="card-title">Mettre à jour N° {{$order->id}}</h4>
 
                                 </div>
                                 <form action="{{ route('orders.update') }}" method="post">
@@ -43,7 +43,7 @@
 
 
                                     <div class="form-group">
-                                        <label for="price">Price <span style="color: red">*</span></label>
+                                        <label for="price">Prix <span style="color: red">*</span></label>
                                         <input type="number" name="prix" id="prix" class="form-control" value="{{$order->prix}}" >
                                         @error('prix')
                                             <div class="error">
@@ -52,7 +52,7 @@
                                         @enderror
                                     </div>
 
-                                    <button type="submit" class="btn btn-sm btn-primary btn-rounded">Submit</button>
+                                    <button type="submit" class="btn btn-sm btn-primary btn-rounded">Enregistrert</button>
                                 </form>
                             </div>
                         </div>

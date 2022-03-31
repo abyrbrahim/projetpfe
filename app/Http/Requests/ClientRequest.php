@@ -26,8 +26,18 @@ class ClientRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required|email|unique:clients,email',
-            'phone' => 'required|numeric',
-            'phone' => 'min:8',
+            'phone' => 'required|numeric|min:8|unique:clients,phone',
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required'=>'Compléter le champ correspondant au nom',
+            'email.required'=>'Le champ email est obligatoire',
+            'phone.required'=>'Le téléphone doit comporter au moins 8 caractères',
+            'email.unique'=>'Email a déjà pris',
+            'phone.unique'=>'Le numéro de téléphone a déjà été pris'
         ];
     }
 }

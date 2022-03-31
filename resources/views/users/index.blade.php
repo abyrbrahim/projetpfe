@@ -12,12 +12,15 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-4">
-                            <h4 class="card-title">Users</h4>
+                            <h4 class="card-title">Liste des utilisateurs</h4>
 
                             <div class="ml-auto">
                                 <div class="dropdown sub-dropdown">
 
-                                        <a href="{{ route('users.create') }}"  class="btn-btn-block btn btn-info-light" role="button" aria-pressed="true">Add a new user</a>
+
+
+
+                                        <a href="{{ route('users.create') }}"  class="btn-btn-block btn btn-info-light" role="button" aria-pressed="true">Ajouter un nouveau utilisateur</a>
 
 
                                 </div>
@@ -26,13 +29,13 @@
 
                         <table class="table table-bordered" data-page-size="10" data-pagination="true" data-search="true" data-toggle="table">
                             <thead>
-                                <tr>
+                                <tr class="bg-secondary">
 
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Role</th>
-                                    <th>Created at</th>
-                                    <th>Actions</th>
+                                    <th  class="text-dark">Nom</th>
+                                    <th class="text-dark">Email</th>
+                                    <th class="text-dark">Rôle</th>
+                                    <th class="text-dark">Créé à</th>
+                                    <th class="text-dark">Actions</th>
 
                                 </tr>
                             </thead>
@@ -45,13 +48,13 @@
                                     <td>@if ($user->isAdmin())
                                         Admin
                                     @else
-                                        Employee
+                                        Employé
                                     @endif</td>
                                     <td>{{$user->created_at->format('d/m/Y')}}</td>
 
                                     <td >
-                                        <a href="{{ route('users.edit', ['user'=>$user]) }}" class="btn btn-success-light btn-sm">Edit</a>
-                                        <a href="{{ route('users.delete', ['id'=>$user]) }}" onclick="return confirm('Are you sure you want to delete this user?');" class="btn  btn-danger-light btn-sm">Delete</a>
+                                        <a href="{{ route('users.edit', ['user'=>$user]) }}" class="btn btn-success-light btn-sm">Éditer</a>
+                                        <a href="{{ route('users.delete', ['id'=>$user]) }}" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');" class="btn  btn-danger-light btn-sm">Supprimer</a>
                                     </td>
                                 </tr>
                                 @empty

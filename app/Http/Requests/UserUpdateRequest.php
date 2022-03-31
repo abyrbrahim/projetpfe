@@ -25,7 +25,19 @@ class UserUpdateRequest extends FormRequest
     {
         return [
            "name"=>'required',
-           "email"=>'required|email|unique:users,email,'.$this->id
+           "email"=>'required|email|unique:users,email,'.$this->id,
+           'password'=>'required|min:6|confirmed'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required'=>'Compléter le champ correspondant au nom',
+            'email.required'=>'Le champ email est obligatoire',
+            'email.unique'=>'Email a déjà pris',
+            'password.required'=>'Le champ mot de passe est obligatoire',
+            'password.confirmed'=>'La confirmation du mot de passe ne correspond pas',
+            'password.min'=>'Le mot de passe doit comporter au moins 6 caractères',
         ];
     }
 }

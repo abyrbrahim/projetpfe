@@ -29,4 +29,11 @@ class OrderRequest extends FormRequest
             'prix'=>'required|numeric|min:1'
         ];
     }
+    public function messages()
+    {
+        return [
+            'description.required'=>'Le champ descriptif est obligatoire',
+            'prix.required'=>'Le champ prix est obligatoire',
+        ];
+    }
 }

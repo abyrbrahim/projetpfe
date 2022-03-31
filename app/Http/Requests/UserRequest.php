@@ -26,7 +26,20 @@ class UserRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required|email|unique:users,email',
+            'role'=>'required',
             'password'=>'required|min:6|confirmed'
         ];
+    }
+    public function messages()
+    {
+
+            return [
+                'name.required'=>'Compléter le champ correspondant au nom',
+                'email.required'=>'Le champ email est obligatoire',
+                'email.unique'=>'Email a déjà pris',
+                'password.confirmed'=>'La confirmation du mot de passe ne correspond pas',
+                'password.required'=>'Le champ password est obligatoire'
+            ];
+
     }
 }

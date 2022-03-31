@@ -27,7 +27,7 @@
 
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap-table/bootstrap-table.css') }}">
         <link rel="stylesheet" href="{{ asset('layouts/layout-1/css/app8bb9.css?v=545') }}">
-
+        <link rel="stylesheet" href="{{ asset('../../../css/invoices/invoices.css') }}">
         <!-- Page style codes or css links goes here. -->
 
 

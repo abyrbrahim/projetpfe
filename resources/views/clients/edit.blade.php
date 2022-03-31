@@ -7,14 +7,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-4">
-                                    <h4 class="card-title">Edit client</h4>
+                                    <h4 class="card-title">Modifier le client</h4>
 
                                 </div>
                                 <form action="{{ route('clients.update') }}" method="post">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$client->id}}">
                                     <div class="form-group">
-                                        <label for="name">Name <span style="color: red">*</span></label>
+                                        <label for="name">Nom <span style="color: red">*</span></label>
                                         <input type="text" name="name" id="name" class="form-control"  value="{{$client->name}}">
                                         @error("name")
                                             <div class="error">
@@ -32,7 +32,7 @@
                                     @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="number">Phone number <span style="color: red">*</span></label>
+                                        <label for="number">Numéro de téléphone <span style="color: red">*</span></label>
                                         <input type="tel" name="phone" id="phone" class="form-control" value="{{$client->phone}}" >
                                         @error('phone')
                                         <div class="error">
@@ -40,7 +40,7 @@
                                         </div>
                                     @enderror
                                     </div>
-                                    <button type="submit" class="btn btn-sm btn-primary btn-rounded">update</button>
+                                    <button type="submit" class="btn btn-sm btn-primary btn-rounded">mettre à jour</button>
                                 </form>
                             </div>
                         </div>

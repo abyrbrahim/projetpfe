@@ -12,9 +12,10 @@ class Order extends Model
     protected $fillable = [
         'user_id','description', 'client_id','prix',
     ];
-    public function product()
+    public function products()
     {
-        return $this->belongsToMany(Product::class, 'order_product');
+        return $this->belongsToMany(Product::class, 'order_product')
+        ->withTimestamps();
     }
     public function client()
     {
@@ -24,4 +25,5 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
 }

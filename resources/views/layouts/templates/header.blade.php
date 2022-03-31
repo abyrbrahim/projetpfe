@@ -33,14 +33,14 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-sm dropdown-menu-left">
                         <div class="dropdown-header pt-0">
-                            <small class="text-overflow m-0">Welcome</small>
+                            <small class="text-overflow m-0">bienvenu</small>
                         </div>
 
                         <a class="dropdown-item"  href="{{ route('logout') }}"  onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             <i data-feather="power" class="svg-icon mr-2 ml-1"></i>
 
-                                {{ __('Logout') }}</a>
+                                {{ __('Se déconnecter') }}</a>
 
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

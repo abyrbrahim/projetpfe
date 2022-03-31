@@ -28,4 +28,12 @@ class ProductUpdateRequest extends FormRequest
             'qte' => 'required|numeric|min:1',
         ];
     }
+    public function messages()
+    {
+        return [
+            'sku.required'=>'The Unité de gestion des stocks field is required',
+            'qte.required'=>'Le champ Quantité est obligatoire',
+        ];
+    }
+
 }
