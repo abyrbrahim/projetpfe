@@ -48,10 +48,11 @@
                                          <td>{{$order->id}}</td>
                                          <td>{{$order->client->name}}</td>
                                          <td>{{$order->user->name}}</td>
-                                         <td>{{$order->prix}}</td>
+                                         <td>{{$order->price}}</td>
 
                                          <td>{{$order->created_at->format('d/m/Y')}}</td>
                                             <td>
+                                            <a href="{{ route('orders.show', ['order'=>$order]) }}" class="btn btn-sm btn-warning-light btn-sm">Imprimer</a>
                                             <a href="{{ route('orders.edit', ['order'=>$order]) }}" class="btn btn-sm btn-success-light btn-sm">Éditer</a>
                                             <a href="{{ route('orders.delete', ['id'=>$order]) }}" onclick="return confirm('Voulez-vous vraiment supprimer cet commande ?');"class="btn btn-sm btn-danger-light btn-sm" {{$order->id}}>Supprimer</a>
 

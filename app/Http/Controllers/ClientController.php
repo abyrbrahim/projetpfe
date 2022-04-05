@@ -13,7 +13,7 @@ class ClientController extends Controller
 {
     public function index()
     {
-            $clients=Client::where('deleted',null)->get();
+            $clients=Client::latest()->get();
 
             return view('clients.index')->with('clients', $clients);
 
@@ -50,9 +50,7 @@ class ClientController extends Controller
      }
      public function delete($id)
      {
-         $client =Client::findorfail($id)->update([
-             'deleted'=>1
-         ]);
+         $client =Client::findorfail($id)->delete();
          Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('clients');
      }

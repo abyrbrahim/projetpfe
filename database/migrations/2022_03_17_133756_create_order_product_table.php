@@ -17,6 +17,7 @@ class CreateOrderProductTable extends Migration
           $table->foreignId('order_id');
           $table->foreignId('product_id');
           $table->integer('qte');
+          $table->decimal('price', 9, 3)->default(0);
           $table->timestamps();
         });
     }

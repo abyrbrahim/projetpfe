@@ -15,13 +15,14 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-
-            $table->string('description');
             $table->foreignId('client_id');
             $table->foreignId('user_id');
-            $table->integer('prix');
-            $table->timestamps();
+            $table->decimal('price', 9, 3)->default(0);
+            $table->string('description');
+            $table->json('orderProducts');
             $table->softDeletes();
+            $table->timestamps();
+
 
 
         });

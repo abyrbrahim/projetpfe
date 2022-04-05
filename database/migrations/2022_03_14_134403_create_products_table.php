@@ -17,6 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('sku');
             $table->integer('qte');
+            $table->decimal('price',9, 3)->default(0);
+            $table->softDeletes();
             $table->timestamps();
 
         });

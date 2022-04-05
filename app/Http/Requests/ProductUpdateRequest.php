@@ -26,6 +26,8 @@ class ProductUpdateRequest extends FormRequest
         return [
             'sku'=>'required',
             'qte' => 'required|numeric|min:1',
+            'price' => 'required|numeric|min:1',
+
         ];
     }
     public function messages()
@@ -33,6 +35,9 @@ class ProductUpdateRequest extends FormRequest
         return [
             'sku.required'=>'The Unité de gestion des stocks field is required',
             'qte.required'=>'Le champ Quantité est obligatoire',
+            'price.required'=>'Le champ prix est obligatoire',
+            'price.numeric'=>'Le champ prix doit etre un chiffre',
+            'price.min'=>'Le prix minimum est 1',
         ];
     }
 

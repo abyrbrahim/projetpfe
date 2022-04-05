@@ -20,6 +20,10 @@ class OrderController extends Controller
 
     }
 
+    public function show(Order $order)
+    {
+       return view('orders.show',compact('order'));
+    }
     public function edit(Order $order)
     {
         $clients = Client::latest()->get();
@@ -37,24 +41,30 @@ class OrderController extends Controller
              'description' => $request->description,
              'client_id' => $request->client_id,
              'user_id'=>Auth::user()->id,
-             'prix'=>$request->prix,
+             'price'=>$request->price,
+             'orderProducts' =>json_encode($request->orderProducts)
 
          ]);
-             $order->products()->attach($request->products_id, ['qte' => 2]);
-
-             //$order->products()->attach(1,);
-
-             Session::flash('success_message', 'Operation effectuer avec success');
-         return redirect()->route('orders');
+        foreach ($request->orderProducts as  $item) {
+            $order->products()->attach($item['product_id'], ['qte' => $item['quantity'],'price'=>$item['price']]);
+        }
+        Session::flash('success_message', 'Operation effectuer avec success');
+        return redirect()->route('orders');
      }
 
      public function update(OrderRequest $request)
      {
-        Order::findorfail($request->id)->update([
+         $order = Order::findorfail($request->id);
+        $order->update([
             'description' => $request->description,
             'client_id' => $request->client_id,
-            'prix'=>$request->prix,
+            'price'=>$request->price,
+            'orderProducts' =>json_encode($request->orderProducts)
         ]);
+        $order->products()->detach();
+        foreach ($request->orderProducts as  $item) {
+            $order->products()->attach($item['product_id'], ['qte' => $item['quantity'],'price'=>$item['price']]);
+        }
         Session::flash('success_message', 'Operation effectuer avec success');
         return redirect()->route('orders');
      }

@@ -23,10 +23,7 @@ class ProductController extends Controller
     }
     public function store(ProductRequest $request) {
 
-        Product::create([
-             'sku' => $request->sku,
-             'qte' => $request->qte,
-         ]);
+        Product::create($request->all());
          Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('products');
      }
@@ -37,17 +34,15 @@ class ProductController extends Controller
      }
      public function update(ProductUpdateRequest $request)
      {
-            Product::findorfail($request->id)->update([
-                'sku' => $request->sku,
-                'qte' => $request->qte,]);
+         
+            Product::findorfail($request->id)->update($request->all());
                 Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('products');
 
     }
     public function delete($id)
     {
-        $product =Product::findorfail($id);
-        $product->delete();
+       Product::findorfail($id)->delete();
         Session::flash('success_message', 'Operation effectuer avec success');
         return redirect()->route('products');
     }

@@ -33,20 +33,25 @@
                                             </div>
                                         @enderror
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="number">Prix unitaire<span style="color: red">*</span></label>
+                                        <input type="number" name="price" id="price" class="form-control @error('price') error @enderror" value="{{old('price')}}">
+                                        @error('price')
+                                            <div class="error">
+                                                {{$message}}
+                                            </div>
+                                        @enderror
+                                    </div>
                                     <button type="submit" class="btn btn-sm btn-primary btn-rounded">Ajouter</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- *************************************************************** -->
-                <!-- End Top Leader Table -->
-                <!-- *************************************************************** -->
+
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-        </div>      <!-- ============================================================== -->
-    </div>          <!-- ============================================================== -->
+
+        </div>
+    </div>
 @endsection
 

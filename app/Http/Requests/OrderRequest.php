@@ -26,14 +26,16 @@ class OrderRequest extends FormRequest
         return [
             'description'=>'required',
             'client_id'=>'required',
-            'prix'=>'required|numeric|min:1'
+            'price'=>'required|numeric|min:1',
+            'orderProducts'=>'required'
         ];
     }
     public function messages()
     {
         return [
             'description.required'=>'Le champ descriptif est obligatoire',
-            'prix.required'=>'Le champ prix est obligatoire',
+            'price.required'=>'Le champ prix est obligatoire',
+            'orderProducts.required'=>'Les produit sont requis'
         ];
     }
 }

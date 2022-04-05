@@ -30,6 +30,7 @@
                                         <th class="text-dark">Unité de gestion des stocks
                                         </th>
                                         <th class="text-dark">Quantité</th>
+                                        <th class="text-dark">Prix unitaire</th>
 
                                         <th class="text-dark">
                                             créé à
@@ -44,6 +45,7 @@
                                          <td>{{$product->id}}</td>
                                          <td>{{$product->sku}}</td>
                                          <td>{{$product->qte}}</td>
+                                         <td>{{$product->price}}</td>
 
                                          <td>{{$product->created_at->format('d/m/Y')}}</td>
                                             <td>

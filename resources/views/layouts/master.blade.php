@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ asset('css/vendor.css') }}">
 
         <!-- Fontawesome -->
-		<link rel="stylesheet" href="{{ asset('../../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css') }}"/>
+		<link rel="stylesheet" href="{{ asset('font-awesome/5.13.1/css/all.min.css') }}"/>
         <!-- Dosis & Poppins Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;523;600;700;800&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 
@@ -31,8 +31,10 @@
         <!-- Page style codes or css links goes here. -->
 		<link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('../../vendor/select2/select2.min.css') }} ">
 
 
+        @livewireStyles
         <!-- Setting website's root url for the api calls. -->
         <script type="text/javascript">
 
@@ -96,7 +98,7 @@
         <!-- Page script codes or links goes here. -->
 		<script src="{{ asset('../../vendor/toastr/toastr.min.js') }}"></script>
         <script src="{{ asset('../../js/pages/components/toastr.js') }}"></script>
-
+        <script src="{{ asset('../../vendor/select2/select2.full.min.js') }} "></script>
         @if (Session::has('success_message'))
 
         <script>
@@ -109,7 +111,7 @@
 
         @endif
 
-
+        @livewireScripts
     </body>
 
 <!-- Mirrored from exon.arsaland.com/html/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2020 12:57:14 GMT -->

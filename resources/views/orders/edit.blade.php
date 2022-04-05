@@ -41,16 +41,7 @@
                                         @enderror
                                     </div>
 
-
-                                    <div class="form-group">
-                                        <label for="price">Prix <span style="color: red">*</span></label>
-                                        <input type="number" name="prix" id="prix" class="form-control" value="{{$order->prix}}" >
-                                        @error('prix')
-                                            <div class="error">
-                                                {{$message}}
-                                            </div>
-                                        @enderror
-                                    </div>
+                                    @livewire('orders', ['order' => $order ])
 
                                     <button type="submit" class="btn btn-sm btn-primary btn-rounded">Enregistrert</button>
                                 </form>
