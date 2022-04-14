@@ -34,9 +34,13 @@
                                         <th class="text-dark ">
                                             créé à
                                         </th>
-
+                                        
+                                        
+                                        @if(Auth::user()->isAdmin())
                                         <th class="text-dark">actions</th>
-                                    </tr>
+                                        @endif
+                                       
+                                    </tr> 
                                 </thead>
                                 <tbody>
                                     @forelse ($clients as $client)
@@ -48,14 +52,15 @@
                                             {{$client->phone}}
                                          </td>
                                          <td>{{$client->created_at->format('d/m/Y')}}</td>
-                                         
+                                          @if(Auth::user()->isAdmin())
                                          <td>
+                                            
                                                 <a href="{{ route('clients.edit', ['client'=>$client]) }}" class="btn btn-sm btn-success-light btn-sm">Éditer</a>
-                                                @if(Auth::user()->isAdmin())
+                                                
                                                 <a href="{{ route('clients.delete', ['id'=>$client]) }}" class="btn btn-sm btn-danger-light btn-sm" data-toggle="modal" data-target="#confirm-modal{{$client->id}}">Supprimer</a>
-                                                @endif
+                                                
                                             </td>
-                                            @if(Auth::user()->isAdmin())
+                                            
                                             <div class="modal fade" tabindex="-1" role="dialog" id="confirm-modal{{$client->id}}">
                                                 <div class="modal-dialog modal-dialog-centered modal-confirm confirm-danger">
                                                     <div class="modal-content">
