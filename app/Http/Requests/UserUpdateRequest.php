@@ -26,7 +26,8 @@ class UserUpdateRequest extends FormRequest
         return [
            "name"=>'required',
            "email"=>'required|email|unique:users,email,'.$this->id,
-           'password'=>'required|min:6|confirmed'
+           'password'=>'required|min:6|confirmed',
+           'is_admin'=>'required'
         ];
     }
     public function messages()

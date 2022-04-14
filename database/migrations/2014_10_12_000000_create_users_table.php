@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('is_admin')->default(0);
-            $table->integer('deleted')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

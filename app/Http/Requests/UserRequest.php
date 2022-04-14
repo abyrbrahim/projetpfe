@@ -26,7 +26,7 @@ class UserRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required|email|unique:users,email',
-            'role'=>'required',
+            'is_admin'=>'required',
             'password'=>'required|min:6|confirmed'
         ];
     }

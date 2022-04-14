@@ -106,7 +106,7 @@
         toastr.options.closeMethod = 'fadeOut';
         toastr.options.closeDuration = 300;
         toastr.options.closeEasing = 'swing';
-        toastr.success( '{!! Session::get('success_message') !!}','Good Job !')
+        toastr.success( '{!! Session::get('success_message') !!}','Bon travail!')
         </script>
 
         @endif

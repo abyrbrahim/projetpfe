@@ -6,6 +6,7 @@ use App\Models\Product;
 use Livewire\Component;
 
 class Orders extends Component
+
 {
     public $products = [];
     public $order;

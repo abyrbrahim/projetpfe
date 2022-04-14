@@ -24,8 +24,8 @@ class OrdreUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'description'=>'required',
             'client_id'=>'required',
+            'description'=>'required',
             'price'=>'required|numeric|min:1',
             'orderProducts'=>'required'
         ];
@@ -35,7 +35,8 @@ class OrdreUpdateRequest extends FormRequest
         return [
             'description.required'=>'Le champ descriptif est obligatoire',
             'price.required'=>'Le champ prix est obligatoire',
-            'orderProducts.required'=>'Les produit sont requis'
+            'price.required'=>'Le champ prix est obligatoire',
+            'orderProducts.required'=>'Le champ produit est obligatoire'
         ];
     }
 }

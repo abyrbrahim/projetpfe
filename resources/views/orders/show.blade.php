@@ -50,6 +50,7 @@
                                 <p>{{ $order->client->name }}</p>
                                 <p>{{ $order->client->email }}</p>
                                 <p>{{ $order->client->phone }}</p>
+
                             </div>
                         </div>
 
@@ -75,6 +76,7 @@
                                         <tr class="bg-dark">
                                             <th>#</th>
                                             <th>Article</th>
+                                            <th>Description</th>
                                             <th>Quantité</th>
                                             <th>Prix unitaire</th>
                                             <th>Total</th>
@@ -83,9 +85,11 @@
                                     <tbody>
                                         @foreach ($order->products as $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>{{ $item->sku }}</td>
-                                            <td>{{ $item->pivot->qte }}</td>
+                                            <td>{{$order->id}}</td>
+                                            <td>{{$item->sku }}</td>
+                                            <td>{{$order->description}}</td>
+                                            <td>{{$item->pivot->qte }}</td>
+
                                             <td>{{ $item->price }}</td>
                                             <td>{{ $item->pivot->price }}</td>
                                         </tr>
@@ -94,7 +98,7 @@
                                         <tr class="aggregation">
                                             <td colspan="3"></td>
                                             <td>Total</td>
-                                            <td>{{ $order->price }}</td>
+                                            <td>{{$order->price}}</td>
                                         </tr>
 
 

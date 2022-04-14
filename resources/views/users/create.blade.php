@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="role">Rôle<span style="color: red">*</span></label>
-                                        <select  id="role" class="form-control @error('role') error @enderror" name="is_admin" >
+                                        <select  id="role" class="form-control @error('is_admin') error @enderror" name="is_admin" >
                                             <option value="0">Admin</option>
                                             <option value="1">Employé</option>
                                         </select>

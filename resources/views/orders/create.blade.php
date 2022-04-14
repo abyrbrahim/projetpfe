@@ -36,12 +36,12 @@
                             <div class="form-group">
                                 <label for="email">Description <span style="color: red">*</span></label>
                                 <textarea name="description" id="description" cols="30" rows="10"
-                                    class="form-control @error('description') error @enderror"></textarea>
-                                @error('description')
-                                <div class="error">
-                                    {{$message}}
-                                </div>
-                                @enderror
+                                    class="form-control @error('description') error @enderror" ></textarea>
+                                    @error('description')
+                                    <div class="error">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                             </div>
 
 
@@ -55,12 +55,9 @@
                                 </div>
                                 @enderror
                             </div> --}}
+
                             @livewire('orders')
-                            @error('orderProducts')
-                            <div class="error">
-                                {{ $message }}
-                            </div>
-                            @enderror
+
 
                             <button type="submit" class="btn btn-sm btn-primary btn-rounded">Ajouter</button>
                         </form>

@@ -33,7 +33,7 @@ class ProductUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'sku.required'=>'The Unité de gestion des stocks field is required',
+            'sku.required'=>'Le champ Unité de gestion des stocks est obligatoire',
             'qte.required'=>'Le champ Quantité est obligatoire',
             'price.required'=>'Le champ prix est obligatoire',
             'price.numeric'=>'Le champ prix doit etre un chiffre',

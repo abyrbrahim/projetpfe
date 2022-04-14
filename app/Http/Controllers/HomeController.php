@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,9 @@ class HomeController extends Controller
         $users=User::count();
         $clients=Client::count();
         $orders=Order::count();
-       
-        return view('home',compact('users','clients','orders'));
+        $products=Product::count();
+
+        return view('home',compact('users','clients','orders','products'));
     }
 
 

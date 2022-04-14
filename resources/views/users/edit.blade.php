@@ -32,6 +32,13 @@
                                     @enderror
                                     </div>
                                     <div class="form-group">
+                                        <label for="role">Rôle<span style="color: red">*</span></label>
+                                        <select  id="role" class="form-control @error('is_admin') error @enderror" name="is_admin" value="{{$user->is_admin}}" >
+                                            <option value="0">Admin</option>
+                                            <option value="1">Employé</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="password">Mot de passe <span style="color: red">*</span></label>
                                         <input type="password" name="password" id="password" class="form-control @error('password') error @enderror" >
                                         @error("password")

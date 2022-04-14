@@ -14,7 +14,9 @@ class UserController extends Controller
 {
     public function index()
     {
-            $users=User::where('deleted',null)->get();
+
+
+            $users=User::latest()->get();
 
             return view('users.index')->with('users', $users);
 
@@ -51,6 +53,7 @@ class UserController extends Controller
             User::findorfail($request->id)->update([
                 'name' => $request->name,
                 'email' => $request->email,
+                'is_admin'=>$request->is_admin,
                 'password' =>Hash::make($request->password),
             ]);
         }else{
@@ -65,9 +68,8 @@ class UserController extends Controller
 
      public function delete($id)
      {
-        $users =User::findorfail($id)->update([
-            'deleted'=>1
-        ]);
+      User::findorfail($id)->delete();
+
         Session::flash('success_message', 'Operation effectuer avec success');
          return redirect()->route('users');
      }

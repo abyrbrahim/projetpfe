@@ -1,15 +1,5 @@
 <div>
-    <div class="form-group">
-        <label for="price">Prix Total</label>
-        <input type="number" name="price" id="price" wire.model='price' value="{{ $price }}" class="form-control @error('price')
-        error
-        @enderror">
-        @error('price')
-        <div class="error">
-            {{ $message }}
-        </div>
-        @enderror
-    </div>
+
     <div class="row mt-4">
         <div class="col-md-12">
 
@@ -59,7 +49,23 @@
                 <span class="icon"><i class="fas fa-box-open"></i></span>
                 <span>Ajouter un produit </span>
             </button>
+            @error('orderProducts')
+            <div class="error">
+                {{ $message }}
+            </div>
+            @enderror
         </div>
 
+    </div>
+    <div class="form-group">
+        <label for="price">Prix Total</label>
+        <input type="number" name="price" id="price" wire.model='price' value="{{ $price }}" class="form-control @error('price')
+        error
+        @enderror">
+        @error('price')
+        <div class="error">
+            {{ $message }}
+        </div>
+        @enderror
     </div>
 </div>

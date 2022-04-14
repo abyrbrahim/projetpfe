@@ -12,7 +12,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-4">
-                            <h4 class="card-title">Liste des commandes</h4>
+                            <h4 class="card-title" style="color: rgb(5, 2, 43)">Liste des commandes</h4>
 
                             <div class="ml-auto">
                                 <div class="dropdown sub-dropdown">
@@ -54,10 +54,32 @@
                                             <td>
                                             <a href="{{ route('orders.show', ['order'=>$order]) }}" class="btn btn-sm btn-warning-light btn-sm">Imprimer</a>
                                             <a href="{{ route('orders.edit', ['order'=>$order]) }}" class="btn btn-sm btn-success-light btn-sm">Éditer</a>
-                                            <a href="{{ route('orders.delete', ['id'=>$order]) }}" onclick="return confirm('Voulez-vous vraiment supprimer cet commande ?');"class="btn btn-sm btn-danger-light btn-sm" {{$order->id}}>Supprimer</a>
+                                            <a href="{{ route('orders.delete', ['id'=>$order]) }}" data-toggle="modal" data-target="#confirm-modal{{$order->id}}"class="btn btn-sm btn-danger-light btn-sm" >Supprimer</a>
 
                                             </td>
+                                            <div class="modal fade" tabindex="-1" role="dialog" id="confirm-modal{{$order->id}}">
+                                                <div class="modal-dialog modal-dialog-centered modal-confirm confirm-danger">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <div class="icon-box">
+                                                                <i class="fa fa-times"></i>
 
+                                                            </div>
+                                                            <h4 class="modal-title">Êtes-vous sûr?</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p class="text-center">Cette commande sera définitivement supprimé</p>
+                                                        </div>
+                                                        <div class="modal-footer row">
+                                                            <div class="col-md-6 px-2">
+                                                                <button type="button" class="btn btn-light"data-dismiss="modal">Fermer</button>
+                                                            </div>
+                                                            <div class="col-md-6 px-2">
+                                                                <a href="{{ route('orders.delete',['id'=>$order->id]) }}" class="btn btn-danger">Supprimer</a>                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </tr>
                                     @empty
                                     Pas encore d'enregistrements ! Cliquez sur<a href="{{ route('orders.create') }}">lien</a> pour ajouter de nouveaux
