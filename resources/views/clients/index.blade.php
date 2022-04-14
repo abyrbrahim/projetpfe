@@ -51,10 +51,11 @@
                                          
                                          <td>
                                                 <a href="{{ route('clients.edit', ['client'=>$client]) }}" class="btn btn-sm btn-success-light btn-sm">Éditer</a>
+                                                @if(Auth::user()->isAdmin())
                                                 <a href="{{ route('clients.delete', ['id'=>$client]) }}" class="btn btn-sm btn-danger-light btn-sm" data-toggle="modal" data-target="#confirm-modal{{$client->id}}">Supprimer</a>
-
+                                                @endif
                                             </td>
-                                        
+                                            @if(Auth::user()->isAdmin())
                                             <div class="modal fade" tabindex="-1" role="dialog" id="confirm-modal{{$client->id}}">
                                                 <div class="modal-dialog modal-dialog-centered modal-confirm confirm-danger">
                                                     <div class="modal-content">
@@ -72,13 +73,16 @@
                                                             <div class="col-md-6 px-2">
                                                                 <button type="button" class="btn btn-light"data-dismiss="modal">Fermer</button>
                                                             </div>
+                                                            
                                                             <div class="col-md-6 px-2">
-                                                                <a href="{{ route('clients.delete',['id'=>$client->id]) }}" class="btn btn-danger">Supprimer</a></div>
+                                                                <a href="{{ route('clients.delete',['id'=>$client->id]) }}" class="btn btn-danger">Supprimer</a>
+                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
+                                            @endif
                                         </tr>
                                     @empty
                                     Pas encore d'enregistrements ! Cliquez sur<a href="{{ route('clients.create') }}">lien</a> pour ajouter de nouveaux

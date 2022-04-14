@@ -20,7 +20,7 @@
             </a>
 
         </li>
-        
+        @if(Auth::user()->isAdmin())
         <li class="header-menu">
             <span>Liste des utilisateurs</span>
         </li>
@@ -37,7 +37,7 @@
             </a>
 
         </li>
-        
+        @endif
          <li class="header-menu">
             <span>Liste des clients</span>
         </li>

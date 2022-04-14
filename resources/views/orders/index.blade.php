@@ -54,9 +54,11 @@
                                             <td>
                                             <a href="{{ route('orders.show', ['order'=>$order]) }}" class="btn btn-sm btn-warning-light btn-sm">Imprimer</a>
                                             <a href="{{ route('orders.edit', ['order'=>$order]) }}" class="btn btn-sm btn-success-light btn-sm">Éditer</a>
+                                            @if(Auth::user()->isAdmin())
                                             <a href="{{ route('orders.delete', ['id'=>$order]) }}" data-toggle="modal" data-target="#confirm-modal{{$order->id}}"class="btn btn-sm btn-danger-light btn-sm" >Supprimer</a>
-
+                                                @endif
                                             </td>
+                                            @if(Auth::user()->isAdmin())
                                             <div class="modal fade" tabindex="-1" role="dialog" id="confirm-modal{{$order->id}}">
                                                 <div class="modal-dialog modal-dialog-centered modal-confirm confirm-danger">
                                                     <div class="modal-content">
@@ -80,6 +82,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
                                         </tr>
                                     @empty
                                     Pas encore d'enregistrements ! Cliquez sur<a href="{{ route('orders.create') }}">lien</a> pour ajouter de nouveaux
