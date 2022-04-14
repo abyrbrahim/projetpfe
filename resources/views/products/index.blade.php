@@ -35,8 +35,9 @@
                                         <th class="text-dark">
                                             créé à
                                         </th>
-
+                                        @if(Auth::user()->isAdmin())
                                         <th class="text-dark">actions</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,8 +47,9 @@
                                          <td>{{$product->sku}}</td>
                                          <td>{{$product->qte}}</td>
                                          <td>{{$product->price}}</td>
-
+                                         
                                          <td>{{$product->created_at->format('d/m/Y')}}</td>
+                                         @if(Auth::user()->isAdmin())
                                             <td>
                                                 <a href="{{route('products.edit', ['product'=>$product])}}" class="btn btn-sm btn-success-light btn-sms">Éditer</a>
 
@@ -77,6 +79,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @endif
                                         </tr>
                                     @empty
                                     Pas encore d'enregistrements ! Cliquez sur <a href="{{route('products.create')}}">lien</a> pour ajouter de nouveaux

@@ -7,6 +7,7 @@
 
     <div class="page-content">
         <div class="row mt-n24">
+            @if(Auth::user()->isAdmin())
             <div class="col-6 col-sm-4 col-lg-2 col-md-3 mt-24">
                 <div class="widget widget-sm h-full">
                    <svg fill="#000" viewBox="0 0 36 32">
@@ -16,7 +17,7 @@
                    <h6>Utilisateurs</h6>
                 </div>
             </div>
-
+            @endif
             <div class="col-6 col-sm-4 col-lg-2 col-md-3 mt-24">
                 <div class="widget widget-sm h-full">
                     <svg fill="#000" viewBox="0 0 36 32">

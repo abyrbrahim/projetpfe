@@ -26,7 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::prefix('users')->middleware('auth')->group(function () {
+Route::prefix('users')->middleware('auth','admin')->group(function () {
     Route::get('/', [UserController::class,'index'])->name('users');
     Route::get('/create', [UserController::class,'create'])->name('users.create');
     Route::post('/store', [UserController::class,'store'])->name('users.store');
@@ -38,9 +38,9 @@ Route::prefix('clients')->group(function () {
     Route::get('/', [ClientController::class,'index'])->name('clients');
     Route::get('/create', [ClientController::class,'create'])->name('clients.create');
     Route::post('/store', [ClientController::class,'store'])->name('clients.store');
-    Route::get('/edit/{client}', [ClientController::class,'edit'])->name('clients.edit');
-    Route::post('/update', [ClientController::class,'update'])->name('clients.update');
-    Route::get('/delete/{id}', [ClientController::class,'delete'])->name('clients.delete');
+    Route::get('/edit/{client}', [ClientController::class,'edit'])->name('clients.edit')->middleware('admin');
+    Route::post('/update', [ClientController::class,'update'])->name('clients.update')->middleware('admin');
+    Route::get('/delete/{id}', [ClientController::class,'delete'])->name('clients.delete')->middleware('admin');
 });
 Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class,'index'])->name('products');
@@ -48,7 +48,7 @@ Route::prefix('products')->group(function () {
     Route::post('/store', [ProductController::class,'store'])->name('products.store');
     Route::get('/edit/{product}', [ProductController::class,'edit'])->name('products.edit');
     Route::post('/update', [ProductController::class,'update'])->name('products.update');
-    Route::get('/delete/{id}', [ProductController::class,'delete'])->name('products.delete');
+    Route::get('/delete/{id}', [ProductController::class,'delete'])->name('products.delete')->middleware('admin');
 
 });
 Route::prefix('orders')->group(function () {
@@ -58,6 +58,6 @@ Route::prefix('orders')->group(function () {
     Route::get('/edit/{order}', [OrderController::class,'edit'])->name('orders.edit');
     Route::get('/show/{order}', [OrderController::class,'show'])->name('orders.show');
     Route::post('/update', [OrderController::class,'update'])->name('orders.update');
-    Route::get('/delete/{id}', [OrderController::class,'delete'])->name('orders.delete');
+    Route::get('/delete/{id}', [OrderController::class,'delete'])->name('orders.delete')->middleware('admin');
 
 });
