@@ -20,6 +20,7 @@ class Orders extends Component
         $this->product_id=$this->product->id;
 
         $this->products = Product::orderBy('id', 'desc')->get();
+
         if (isset($this->order)) {
 
             $products = json_decode($this->order->orderProducts);
