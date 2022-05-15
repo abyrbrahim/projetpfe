@@ -11,6 +11,7 @@
                             <th>Produit</th>
                             <th>Quantité</th>
                             <th>Prix unitaire</th>
+                            <th>Prix total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,6 +30,11 @@
                             <td>
                                 <input type="number" name="orderProducts[{{ $index }}][quantity]" class="form-control"
                                     wire:model="orderProducts.{{ $index }}.quantity" min="0" />
+                            </td>
+                            <td>
+                                {{$orderProducts[$index]['price']}}
+                                <input type="hidden" name="orderProducts[{{ $index }}][price]"
+                                    wire:model='orderProducts.{{ $index }}.price'>
                             </td>
                             <td>
                                 {{$orderProducts[$index]['price']}}
