@@ -4,7 +4,7 @@
 
 <!-- Mirrored from exon.arsaland.com/html/pages/auth/login-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Aug 2020 13:01:13 GMT -->
 <head>
-        <title>Projet Pfe</title>
+        <title>E-liquide Store</title>
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 

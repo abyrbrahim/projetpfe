@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -11,7 +12,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable,SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +20,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','lastname', 'email','password','is_admin',
+        'name', 'lastname', 'email', 'password', 'is_admin',
     ];
 
     /**
@@ -40,25 +41,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     public function run()
-{
-    User::factory()
+    {
+        User::factory()
             ->count(50)
             ->hasPosts(1)
             ->create();
-}
-public function ordor()
-{
-    return $this->hasMany(Order::class)->withTrashed();
-}
-public function isAdmin()
-{
-    if ($this->is_admin == 0) {
-       return true;
-    } else {
-       return false;
+    }
+    public function ordor()
+    {
+        return $this->hasMany(Order::class)->withTrashed();
+    }
+    public function isAdmin()
+    {
+        if ($this->is_admin == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-}
-
-
+    public function getProductPrice($id)
+    {
+        $product = Product::where('id', $id)->withTrashed()->first();
+        return $product ? $product->price : 0 ;
+    }
 }

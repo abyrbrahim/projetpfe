@@ -32,7 +32,7 @@
                                     wire:model="orderProducts.{{ $index }}.quantity" min="0" />
                             </td>
                             <td>
-                                {{$orderProducts[$index]['price']}}
+                                {{ Auth::user()->getProductPrice($orderProducts[$index]['product_id']) }}
                                 <input type="hidden" name="orderProducts[{{ $index }}][price]"
                                     wire:model='orderProducts.{{ $index }}.price'>
                             </td>

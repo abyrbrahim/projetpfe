@@ -29,7 +29,6 @@
                 <li class="nav-item nav-user-dropdown dropdown">
                     <a href="#" class="nav-link dropdown-toggle dropdown-nocaret" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{ Auth::user()->name }}
-                        <img src="../../assets/avatars/1.jpg" class="avatar avatar-1 rounded-circle" alt="Avatar image">
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-sm dropdown-menu-left">
                         <div class="dropdown-header pt-0">

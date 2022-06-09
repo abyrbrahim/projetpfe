@@ -13,47 +13,45 @@ class ClientController extends Controller
 {
     public function index()
     {
-            $clients=Client::latest()->get();
-
-            return view('clients.index')->with('clients', $clients);
-
+        Session::put('page', 'clients');
+        $clients = Client::latest()->get();
+        return view('clients.index')->with('clients', $clients);
     }
     public function create()
     {
         return view('clients.create');
     }
-    public function store(ClientRequest $request) {
+    public function store(ClientRequest $request)
+    {
 
         Client::create([
-             'name' => $request->name,
-             'email' => $request->email,
-             'phone' => $request->phone,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
 
-         ]);
-         Session::flash('success_message', 'Operation effectuer avec success');
-         return redirect()->route('clients');
-     }
-     public function edit(Client $client)
-     {
-
-     return view('clients.edit')->with('client',$client);
-     }
-     public function update(ClientUpdateRequest $request)
-     {
-            Client::findorfail($request->id)->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
-            ]);
-            Session::flash('success_message', 'Operation effectuer avec success');
-         return redirect()->route('clients');
-     }
-     public function delete($id)
-     {
-         $client =Client::findorfail($id)->delete();
-         Session::flash('success_message', 'Operation effectuer avec success');
-         return redirect()->route('clients');
-     }
-
-
+        ]);
+        Session::flash('success_message', 'Operation effectuer avec success');
+        return redirect()->route('clients');
+    }
+    public function edit(Client $client)
+    {
+        Session::put('page', 'clients');
+        return view('clients.edit')->with('client', $client);
+    }
+    public function update(ClientUpdateRequest $request)
+    {
+        Client::findorfail($request->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+        Session::flash('success_message', 'Operation effectuer avec success');
+        return redirect()->route('clients');
+    }
+    public function delete($id)
+    {
+        $client = Client::findorfail($id)->delete();
+        Session::flash('success_message', 'Operation effectuer avec success');
+        return redirect()->route('clients');
+    }
 }

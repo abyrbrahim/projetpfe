@@ -41,7 +41,7 @@
                     <div class="row mt-4">
 
                         <div class="col-md-6">
-                            <h5 class="heading">VapeStore</h5>
+                            <h5 class="heading">E-liquide Store</h5>
                             <p class="address"> B12 Immeuble Gamaoun, 4022 Av. de la République, Akouda 4022</p>
                         </div>
                         <div class="col-md-6 text-right">
@@ -76,7 +76,6 @@
                                         <tr class="bg-dark">
                                             <th>#</th>
                                             <th>Article</th>
-                                            <th>Description</th>
                                             <th>Quantité</th>
                                             <th>Prix unitaire</th>
                                             <th>Total</th>
@@ -87,7 +86,6 @@
                                         <tr>
                                             <td>{{$order->id}}</td>
                                             <td>{{$item->sku }}</td>
-                                            <td>{{$order->description}}</td>
                                             <td>{{$item->pivot->qte }}</td>
 
                                             <td>{{ $item->price }}</td>

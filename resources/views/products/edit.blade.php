@@ -11,7 +11,7 @@
 
                                 </div>
                                 <form action="{{ route('products.update') }}" method="post">
-                                    @csrfproducts.update
+                                    @csrf
                                     <input type="hidden" name="id" value="{{$product->id}}">
                                     <div class="form-group">
                                         <label for="sku">Unité de gestion des stocks <span style="color: red">*</span></label>
@@ -49,10 +49,7 @@
 
 
 
-                
+
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
+          
 @endsection

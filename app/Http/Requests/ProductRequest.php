@@ -24,7 +24,7 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'sku'=>'required',
+            'sku' => 'required|unique:products,sku,' . $this->id . ',id,deleted_at,NULL',
             'qte' => 'required|numeric|min:1',
             'price' => 'required|numeric|min:1',
         ];
@@ -33,6 +33,7 @@ class ProductRequest extends FormRequest
     {
         return [
             'sku.required'=>'Le champ Unité de gestion des stocks est obligatoire',
+            'sku.unique'=>'Le champ Unité de gestion des stocks a déjà été pris.',
             'qte.required'=>'Le champ Quantité est obligatoire',
             'price.required'=>'Le champ prix est obligatoire',
             'price.numeric'=>'Le champ prix doit etre un chiffre',
@@ -40,3 +41,5 @@ class ProductRequest extends FormRequest
         ];
     }
 }
+
+

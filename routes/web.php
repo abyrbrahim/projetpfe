@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    
+
     return redirect()->route('home');
 });
 
@@ -48,6 +48,7 @@ Route::prefix('products')->group(function () {
     Route::post('/store', [ProductController::class,'store'])->name('products.store');
     Route::get('/edit/{product}', [ProductController::class,'edit'])->name('products.edit');
     Route::post('/update', [ProductController::class,'update'])->name('products.update');
+    Route::post('/update/quantity', [ProductController::class,'quantity'])->name('products.update.quantity');
     Route::get('/delete/{id}', [ProductController::class,'delete'])->name('products.delete')->middleware('admin');
 
 });

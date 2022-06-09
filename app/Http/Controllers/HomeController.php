@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
-use App\Models\Order;
-use App\Models\Product;
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        Session::put('page', 'dashboard');
         $users=User::count();
         $clients=Client::count();
         $orders=Order::count();

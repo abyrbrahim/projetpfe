@@ -17,7 +17,7 @@ class UserController extends Controller
 
 
             $users=User::latest()->get();
-
+            Session::put('page', 'users');
             return view('users.index')->with('users', $users);
 
     }

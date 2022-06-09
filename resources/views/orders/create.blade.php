@@ -36,12 +36,12 @@
                             <div class="form-group">
                                 <label for="email">Description <span style="color: red">*</span></label>
                                 <textarea name="description" id="description" cols="30" rows="10"
-                                    class="form-control @error('description') error @enderror" ></textarea>
-                                    @error('description')
-                                    <div class="error">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
+                                    class="form-control @error('description') error @enderror"></textarea>
+                                @error('description')
+                                <div class="error">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
 
